@@ -14,12 +14,15 @@ public class Main {
     }
     public static class Solution {
         public int solution(String arrangement) {
-            int answer = 0;
 
+            int answer = 0;
             Stack<Character> stack = new Stack<>();
             char lastChar = '0';
+
             for(int i = 0; i < arrangement.length(); i++){
+
                 char currentChar = arrangement.charAt(i);
+
                 if(currentChar == '('){
                     stack.push(currentChar);
                 }
@@ -33,6 +36,7 @@ public class Main {
                         stack.pop();
                     }
                 }
+
                 lastChar = currentChar;
             }
 
