@@ -8,8 +8,9 @@ public class Main {
         int[] dp = new int[1001];
         dp[1] = 2;
         dp[2] = 7;
+        dp[3] = 22;
 
-        if(n == 1 || n == 2) System.out.println(dp[n]);
+        if(n == 1 || n == 2 || n == 3) System.out.println(dp[n]);
         else {
             System.out.println(solve(dp,n));
         }
@@ -18,7 +19,7 @@ public class Main {
     private static int solve(int[] dp, int n) {
 
         for(int i = 3; i <= n; i++) {
-            dp[i] = 4*dp[i-2]%1000000007 + 2*dp[i-1]%1000000007;
+            dp[i] = 3*(dp[i-2]%1000000007) + 2*(dp[i-1]%1000000007) + 2*(dp[i-3]%1000000007) + 2*(dp[i-4]%1000000007);
         }
 
         return dp[n]%1000000007;
